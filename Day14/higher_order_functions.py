@@ -1,9 +1,9 @@
 from functools import reduce
 
 import sys
-sys.path.append('\python_30_day')
-import data.countries as countri3
-import data.countries_data as country_data
+sys.path.append('data')
+import countries as countri3
+import countries_data as country_data
 
 countrys = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
 names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']

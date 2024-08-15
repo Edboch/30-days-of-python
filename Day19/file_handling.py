@@ -1,3 +1,6 @@
+# Day19/file_handling.py
+# file_handling.py
+
 import re,json,sys
 sys.path.append('data')
 import stop_words
@@ -17,7 +20,7 @@ def words_only_text(filename):
     with open(f'{filename}') as f:
         txt = f.read().lower()
         cleaned = re.sub(r'[^\sa-zA-Z0-9]','',txt)
-        cleaned = re.sub(r'(\n\n)|(  )',' ',cleaned)
+        cleaned = re.sub(r'(\n)|(  )',' ',cleaned)
     return cleaned
 
 def most_spoken_lang(jsfilename,length):
@@ -39,10 +42,10 @@ def most_populated_countries(jsfilename,length):
     return dict(sorted(count.items(),key= lambda x: x[1],reverse = True)[:length])
 
 
-#print(most_spoken_lang('C:/python_30_day/data/countries_data.json',10))
-#print(most_populated_countries('C:/python_30_day/data/countries_data.json',10))
-#print(count_lines('C:/python_30_day/data/michelle_obama_speech.txt'))
-#print(len(word_list('C:/python_30_day/data/michelle_obama_speech.txt')))
+#print(most_spoken_lang('C:/30-days-of-python/data/countries_data.json',10))
+#print(most_populated_countries('C:/30-days-of-python/data/countries_data.json',10))
+#print(count_lines('C:/30-days-of-python/data/michelle_obama_speech.txt'))
+#print(len(word_list('C:/30-days-of-python/data/michelle_obama_speech.txt')))
 
 def extract_emails(file):
     emails = []
@@ -54,7 +57,7 @@ def extract_emails(file):
                 emails.append(word)
     return list(set(emails))
 
-#print(extract_emails('C:/python_30_day/data/email_exchanges_big.txt'))
+#print(extract_emails('C:/30-days-of-python/data/email_exchanges_big.txt'))
 
 def find_most_common_words(file,length):
     text = words_only_text(file)
@@ -73,12 +76,12 @@ def find_most_common_words(file,length):
     return counter.most_common(length)
 
 
-# print(find_most_common_words('C:/python_30_day/data/obama_speech.txt',10))
-# print(find_most_common_words('C:/python_30_day/data/michelle_obama_speech.txt',10))
-# print(find_most_common_words('C:/python_30_day/data/donald_speech.txt',10))
-# print(find_most_common_words('C:/python_30_day/data/melina_trump_speech.txt',10))
+# print(find_most_common_words('C:/30-days-of-python/data/obama_speech.txt',10))
+# print(find_most_common_words('C:/30-days-of-python/data/michelle_obama_speech.txt',10))
+# print(find_most_common_words('C:/30-days-of-python/data/donald_speech.txt',10))
+# print(find_most_common_words('C:/30-days-of-python/data/melina_trump_speech.txt',10))
 
-#print(words_only_text('C:/python_30_day/data/michelle_obama_speech.txt'))
+#print(words_only_text('C:/30-days-of-python/data/michelle_obama_speech.txt'))
 
 def remove_stop_words(text):
     return [word for word in text.split() if word not in stop_words.stop_words]
@@ -122,10 +125,10 @@ def check_text_similarity(file1,file2):
     print(score)
 
     
-#check_text_similarity('C:/python_30_day/data/michelle_obama_speech.txt','C:/python_30_day/data/melina_trump_speech.txt')
-#print(find_most_common_words('C:/python_30_day/data/romeo_and_juliet.txt',10))
+#check_text_similarity('C:/30-days-of-python/data/michelle_obama_speech.txt','C:/30-days-of-python/data/melina_trump_speech.txt')
+#print(find_most_common_words('C:/30-days-of-python/data/romeo_and_juliet.txt',10))
 
-with open('C:/python_30_day/data/hacker_news.csv') as f:
+with open('C:/30-days-of-python/data/hacker_news.csv') as f:
     csv_reader = csv.reader(f)
     python_lines = 0
     javascript_lines = 0
@@ -138,4 +141,4 @@ with open('C:/python_30_day/data/hacker_news.csv') as f:
             javascript_lines+=1
         if 'Java' in line and 'JavaScript' not in line:
             java_lines+=1
-    print(python_lines,javascript_lines,java_lines)
+    #print(python_lines,javascript_lines,java_lines)
