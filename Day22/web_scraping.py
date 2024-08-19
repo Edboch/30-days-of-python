@@ -1,8 +1,9 @@
+import datetime
+import json
+
+import regex
 import requests
 from bs4 import BeautifulSoup
-import json
-import datetime
-import regex
 
 ### 1
 url = 'http://www.bu.edu/president/boston-university-facts-stats/'
