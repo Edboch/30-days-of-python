@@ -1,0 +1,29 @@
+{% extends 'layout.html' %} {% block content %}
+<div class = "container">
+    <h1>Text Analysis Result</h1>
+    <div>
+        <p>Total number of words: {{ number_of_words }}</p>
+        <p>Number of characters: {{ char_count }}</p>
+        <p>The most frequent word: {{ most_repeated }}</p>
+        <p>The word variety(lexical density): {{ variety }}%</p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Word Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for word, count in word_count %}
+            <tr>
+                <td>{{word}}</td>
+                <td>{{count}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+
+    </table>
+</div>
+{% endblock %}
