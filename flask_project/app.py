@@ -1,6 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 from text_analysis import text_analysis as ta
+import pymongo
+
+MONGODB_URI = 'mongodb+srv://Edboch:HKI0C2NM66LHp8Vt@30daysofpython.0vgwc.mongodb.net/?retryWrites=true&w=majority&appName=30DaysOfPython'
+client = pymongo.MongoClient(MONGODB_URI)
+db = client.thirty_days_of_python
+
+students = db.students.find().sort('name',-1)
+for student in students:
+    print(student)
+
+
 
 app = Flask(__name__)
 
